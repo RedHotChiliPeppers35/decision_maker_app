@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -27,7 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     if (_counter == 0) {
-      null;
       showCupertinoDialog(
         context: context,
         builder: (context) => CupertinoAlertDialog(
@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     } else {
+      SystemSound.play(SystemSoundType.click);
       setState(() {
         _counter--;
         imageNo = Random().nextInt(5) + 1;
